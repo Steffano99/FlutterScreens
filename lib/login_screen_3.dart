@@ -7,7 +7,6 @@ class LoginScreen3 extends StatefulWidget {
 
 class _LoginScreen3State extends State<LoginScreen3>
     with TickerProviderStateMixin {
-
   //The code is commented because instead of manual scrolling with animation,
   //Now PageView is being used
 
@@ -169,11 +168,19 @@ class _LoginScreen3State extends State<LoginScreen3>
             child: new Row(
               children: <Widget>[
                 new Expanded(
-                  child: new OutlineButton(
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0)),
-                    color: Colors.redAccent,
-                    highlightedBorderColor: Colors.white,
+                  child: new OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                            shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0)),
+                            backgroundColor: Colors.redAccent)
+                        .copyWith(overlayColor:
+                            MaterialStateProperty.resolveWith<Color?>(
+                                (Set<MaterialState> states) {
+                      if (states.contains(MaterialState.pressed)) {
+                        return Colors.white.withOpacity(0.3);
+                      }
+                      return null;
+                    })),
                     onPressed: () => gotoSignup(),
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
@@ -207,10 +214,12 @@ class _LoginScreen3State extends State<LoginScreen3>
             child: new Row(
               children: <Widget>[
                 new Expanded(
-                  child: new FlatButton(
-                    shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0)),
-                    color: Colors.white,
+                  child: new TextButton(
+                    style: TextButton.styleFrom(
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      backgroundColor: Colors.white,
+                    ),
                     onPressed: () => gotoLogin(),
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
@@ -373,7 +382,7 @@ class _LoginScreen3State extends State<LoginScreen3>
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
-                child: new FlatButton(
+                child: new TextButton(
                   child: new Text(
                     "Forgot Password?",
                     style: TextStyle(
@@ -395,11 +404,13 @@ class _LoginScreen3State extends State<LoginScreen3>
             child: new Row(
               children: <Widget>[
                 new Expanded(
-                  child: new FlatButton(
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
+                  child: new TextButton(
+                    style: TextButton.styleFrom(
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: Colors.redAccent,
                     ),
-                    color: Colors.redAccent,
                     onPressed: () => {},
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
@@ -466,26 +477,30 @@ class _LoginScreen3State extends State<LoginScreen3>
                     child: new Row(
                       children: <Widget>[
                         new Expanded(
-                          child: new FlatButton(
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
+                          child: new TextButton(
+                            style: TextButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0),
+                              ),
+                              backgroundColor: Color(0Xff3B5998),
                             ),
-                            color: Color(0Xff3B5998),
                             onPressed: () => {},
                             child: new Container(
                               child: new Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   new Expanded(
-                                    child: new FlatButton(
-                                      onPressed: ()=>{},
-                                      padding: EdgeInsets.only(
-                                        top: 20.0,
-                                        bottom: 20.0,
+                                    child: new TextButton(
+                                      style: TextButton.styleFrom(
+                                        padding: EdgeInsets.only(
+                                          top: 20.0,
+                                          bottom: 20.0,
+                                        ),
                                       ),
+                                      onPressed: () => {},
                                       child: new Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                            MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
                                           Icon(
                                             const IconData(0xea90,
@@ -520,26 +535,30 @@ class _LoginScreen3State extends State<LoginScreen3>
                     child: new Row(
                       children: <Widget>[
                         new Expanded(
-                          child: new FlatButton(
-                            shape: new RoundedRectangleBorder(
-                              borderRadius: new BorderRadius.circular(30.0),
+                          child: new TextButton(
+                            style: TextButton.styleFrom(
+                              shape: new RoundedRectangleBorder(
+                                borderRadius: new BorderRadius.circular(30.0),
+                              ),
+                              backgroundColor: Color(0Xffdb3236),
                             ),
-                            color: Color(0Xffdb3236),
                             onPressed: () => {},
                             child: new Container(
                               child: new Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   new Expanded(
-                                    child: new FlatButton(
-                                      onPressed: ()=>{},
-                                      padding: EdgeInsets.only(
-                                        top: 20.0,
-                                        bottom: 20.0,
+                                    child: new TextButton(
+                                      style: TextButton.styleFrom(
+                                        padding: EdgeInsets.only(
+                                          top: 20.0,
+                                          bottom: 20.0,
+                                        ),
                                       ),
+                                      onPressed: () => {},
                                       child: new Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                            MainAxisAlignment.spaceEvenly,
                                         children: <Widget>[
                                           Icon(
                                             const IconData(0xea88,
@@ -648,11 +667,9 @@ class _LoginScreen3State extends State<LoginScreen3>
                 ],
               ),
             ),
-
             Divider(
               height: 24.0,
             ),
-
             new Row(
               children: <Widget>[
                 new Expanded(
@@ -760,7 +777,7 @@ class _LoginScreen3State extends State<LoginScreen3>
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(right: 20.0),
-                  child: new FlatButton(
+                  child: new TextButton(
                     child: new Text(
                       "Already have an account?",
                       style: TextStyle(
@@ -782,11 +799,13 @@ class _LoginScreen3State extends State<LoginScreen3>
               child: new Row(
                 children: <Widget>[
                   new Expanded(
-                    child: new FlatButton(
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
+                    child: new TextButton(
+                      style: TextButton.styleFrom(
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: Colors.redAccent,
                       ),
-                      color: Colors.redAccent,
                       onPressed: () => {},
                       child: new Container(
                         padding: const EdgeInsets.symmetric(
@@ -837,7 +856,8 @@ class _LoginScreen3State extends State<LoginScreen3>
     );
   }
 
-  PageController _controller = new PageController(initialPage: 1, viewportFraction: 1.0);
+  PageController _controller =
+      new PageController(initialPage: 1, viewportFraction: 1.0);
 
   @override
   Widget build(BuildContext context) {

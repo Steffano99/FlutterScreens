@@ -163,10 +163,12 @@ class LoginScreen2 extends StatelessWidget {
                 child: new Row(
                   children: <Widget>[
                     new Expanded(
-                      child: new FlatButton(
-                        padding: const EdgeInsets.symmetric(
+                      child: new TextButton(
+                        style: TextButton.styleFrom(
+                          padding:  const EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 20.0),
-                        color: this.highlightColor,
+                            backgroundColor: this.highlightColor,
+                        ), 
                         onPressed: () => {},
                         child: Text(
                           "Log In",
@@ -213,10 +215,13 @@ class LoginScreen2 extends StatelessWidget {
                 child: new Row(
                   children: <Widget>[
                     new Expanded(
-                      child: new FlButton(
-                        padding: const EdgeInsets.symmetric(
+                      child: new TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
                             vertical: 20.0, horizontal: 20.0),
-                        color: Colors.transparent,
+                            backgroundColor: Colors.transparent,
+                        ),
+                        
                         onPressed: () => {},
                         child: Text(
                           "Don't have an account? Create One",
