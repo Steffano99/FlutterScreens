@@ -51,9 +51,13 @@ class SimpleRoundIconButton extends StatelessWidget {
                                       borderRadius:
                                           new BorderRadius.circular(28.0)),
                                   backgroundColor: Colors.white,
-                                ),
-
-                                //splashColor: Colors.white,
+                                ).copyWith(overlayColor:
+                                    MaterialStateProperty.resolveWith<Color?>(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return Colors.white.withOpacity(0.3);
+                                  }
+                                })),
                                 child: Icon(
                                   icon.icon,
                                   color: iconColor == null
