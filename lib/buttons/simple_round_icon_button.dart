@@ -81,12 +81,19 @@ class SimpleRoundIconButton extends StatelessWidget {
                             offset: Offset(10.0, 0.0),
                             child: new Container(
                               padding: const EdgeInsets.all(5.0),
-                              child: FlatButton(
-                                shape: new RoundedRectangleBorder(
-                                    borderRadius:
-                                        new BorderRadius.circular(28.0)),
-                                splashColor: Colors.white,
-                                color: Colors.white,
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                  shape: new RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(28.0)),
+                                  backgroundColor: Colors.white,
+                                ).copyWith(overlayColor:
+                                    MaterialStateProperty.resolveWith<Color?>(
+                                        (Set<MaterialState> states) {
+                                  if (states.contains(MaterialState.pressed)) {
+                                    return Colors.white.withOpacity(0.3);
+                                  }
+                                })),
                                 child: Icon(
                                   icon.icon,
                                   color: iconColor == null
