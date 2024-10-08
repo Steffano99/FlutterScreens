@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'login_screen_1.dart';
+import 'package:flutter_login_screens/login_screen_2.dart';
+import 'package:flutter_login_screens/login_screen_3.dart';
 
 void main() => runApp(new MyApp());
 
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: LoginScreen1(),
+      body: LoginScreen3(),
     );
   }
 
